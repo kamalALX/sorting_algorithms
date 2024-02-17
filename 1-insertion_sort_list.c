@@ -1,25 +1,55 @@
 #include "sort.h"
 
-/***/
+/**
+ * insertion_sort_list - a function that sorts a doubly linked list
+ *	of integers in ascending order using the Insertion sort algorithm.
+ * @list: pointer to the head of list.
+ */
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t temp;
-	int size = size_of_list(list);
+	listint_t *temp;
+	listint_t *idx_ptr;
 
-	if (*list == NULL || size < 2)
+	if (*list == NULL || (*list)->next == NULL)
 		return;
+
+	temp = (*list)->next;
+	while (temp)
+	{
+		idx_ptr = temp->next;
+		while (temp->prev && temp->n < temp->prev->n)
+		{
+			swap_nodes(temp->prev, temp, list);
+			print_list(*list);
+		}
+		temp = idx_ptr;
+	}
 }
 
+/**
+ * swap_nodes - a function that swaps two nodes.
+ * @node_prev: node in the left*
+ * @node: node in the right.
+ * @list: pointer to the head of the list.
+ */
 
-int size_of_list(listint_t *node)
+void swap_nodes(listint_t *node_prev, listint_t *node, listint_t **list)
 {
-	int count = 0;
+	listint_t *node_next;
 
-	while (node)
-	{
-		count += 1;
-		node = node->next;
-	}
-	return (count);
+	node_next = node->next;
+
+	if (node_prev->prev != NULL)
+		node_prev->prev->next = node;
+	else
+		*list = node;
+	node->prev = node_prev->prev;
+
+	node->next = node_prev;
+	node_prev->prev = node;
+
+	node_prev->next = node_next;
+	if (node_next != NULL)
+		node_next->prev = node_prev;
 }
