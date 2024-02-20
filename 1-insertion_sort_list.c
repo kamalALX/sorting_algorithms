@@ -29,7 +29,7 @@ void insertion_sort_list(listint_t **list)
 
 /**
  * swap_nodes - a function that swaps two nodes.
- * @node_prev: node in the left*
+ * @node_prev: node in the left
  * @node: node in the right.
  * @list: pointer to the head of the list.
  */
