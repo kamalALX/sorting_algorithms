@@ -9,7 +9,6 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *temp;
-	listint_t *idx_ptr;
 
 	if (*list == NULL || (*list)->next == NULL)
 		return;
@@ -17,13 +16,12 @@ void insertion_sort_list(listint_t **list)
 	temp = (*list)->next;
 	while (temp)
 	{
-		idx_ptr = temp->next;
 		while (temp->prev && temp->n < temp->prev->n)
 		{
 			swap_nodes(temp->prev, temp, list);
 			print_list(*list);
 		}
-		temp = idx_ptr;
+		temp = temp->next;
 	}
 }
 
