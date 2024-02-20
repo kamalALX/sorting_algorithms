@@ -9,7 +9,7 @@
 */
 void quick_sort(int *array, size_t size)
 {
-	if (!array || !size || size < 2)
+	if (!array && !size && size < 2)
 		return;
 
 	quicksort(array, 0, size - 1, size);
@@ -69,4 +69,3 @@ int partition(int *array, int left, int right, size_t size)
 		print_array(array, size);
 	return (j);
 }
-
