@@ -1,6 +1,10 @@
 #include "sort.h"
 
-/***/
+/**
+ * max_gap - finds max gap.
+ * @size: size of the array to find the gap for.
+ * Return: the gap.
+*/
 
 size_t max_gap(size_t size)
 {
@@ -13,7 +17,12 @@ size_t max_gap(size_t size)
 	return ((max - 1) / 3);
 }
 
-/***/
+/**
+ * shell_sort - sorts an array of integers in ascending
+ *	order using the Shell sort algorithm, using the Knuth sequence
+ * @array: array to sort.
+ * @size: size of the array.
+*/
 
 void shell_sort(int *array, size_t size)
 {
