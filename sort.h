@@ -31,5 +31,7 @@ void cocktail_sort_list(listint_t **list);
 void swaper_nodes(listint_t **list, listint_t *ndp, listint_t *nds);
 void forward_pass(listint_t **list);
 void backward_pass(listint_t **list);
+void shell_sort(int *array, size_t size);
+
 #endif /* _SORTING_*/
 
