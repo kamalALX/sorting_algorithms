@@ -40,7 +40,7 @@ void forward_pass(listint_t **list)
 	{
 		if (p->n > p->next->n)
 		{
-			swaper_nodes(list, p, p->next);
+			swaper_nodes(list, p->next, p);
 			swap = 1;
 			print_list(*list);
 		}
@@ -64,7 +64,7 @@ void backward_pass(listint_t **list)
 	{
 		if (p->n < p->prev->n)
 		{
-			swap_nodes(list, p->prev, p);
+			swaper_nodes(list, p->prev, p);
 			swap = 1;
 			print_list(*list);
 		}
