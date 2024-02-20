@@ -35,7 +35,7 @@ void quicksort(int *array, int left, int right, size_t size)
 }
 
 /**
- *  partition - Partitions the array for quicksort
+ * partition - Partitions the array for quicksort
  *
  * @array: The array to be partitioned
  * @left: The left index of the sub-array
@@ -57,7 +57,7 @@ int partition(int *array, int left, int right, size_t size)
 			temp = array[i];
 			array[i] = array[j];
 			array[j] = temp;
-			if (i != j)
+			if (i != j && array[i] != array[j])
 				print_array(array, size);
 			j++;
 		}
@@ -65,7 +65,7 @@ int partition(int *array, int left, int right, size_t size)
 	temp = array[j];
 	array[j] = array[right];
 	array[right] = temp;
-	if (j != right)
+	if (j != right && array[j] != array[right])
 		print_array(array, size);
 	return (j);
 }
